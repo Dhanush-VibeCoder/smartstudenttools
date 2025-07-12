@@ -3,7 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    sourcemap: true,
-  },
+  base: '/smartstudenttools/', // Set base for GitHub Pages
 }); 
