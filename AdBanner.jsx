@@ -7,12 +7,16 @@ const AdBanner = () => {
     } catch (e) {}
   }, []);
   return (
-    <ins className="adsbygoogle"
-      style={{ display: 'block' }}
-      data-ad-client="ca-pub-3940256099942544"  // Google official test client ID
-      data-ad-slot="1234567890"                // Google official test slot ID
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
+    <div style={{ width: '100%', minWidth: 320, display: 'block' }}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%', minWidth: 320, height: 100 }}
+        data-ad-client="ca-pub-3940256099942544"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+    </div>
   );
 };
 
