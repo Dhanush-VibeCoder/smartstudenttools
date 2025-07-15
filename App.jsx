@@ -4,6 +4,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import About from './About';
 import Contact from './Contact';
 import AdBanner from './AdBanner';
+import { Analytics } from '@vercel/analytics/react';
 
 
 const GPAConverterTool = lazy(() => import('./GPAConverterTool.jsx'));
@@ -313,6 +314,7 @@ const App = () => {
         <Link to="/contact" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">Contact</Link>
         <Link to="/privacy-policy" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Privacy Policy</Link>
       </footer>
+      <Analytics />
     </BrowserRouter>
   );
 };

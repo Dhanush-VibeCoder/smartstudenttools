@@ -12,7 +12,7 @@ const PrivacyPolicy = () => (
       Your privacy is important to us. This app does not collect, store, or share any personal information unless explicitly stated. Any data you enter is processed locally in your browser and is not sent to any server.
     </p>
     <p className="mb-4 text-gray-700 dark:text-gray-300">
-      If you have questions about privacy, contact us at <a href="mailto:your@email.com" className="underline text-blue-600">your@email.com</a>.
+      If you have questions about privacy, contact us at <a href="mailto:gundappagaridhanush@gmail.com" className="underline text-blue-600">your@email.com</a>.
     </p>
     <p className="mb-4 text-gray-700 dark:text-gray-300">
       <strong>Advertising & Cookies:</strong> This site uses Google AdSense to display ads. Third-party vendors, including Google, may use cookies to serve ads based on your prior visits to this or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Google Ads Settings</a>.
