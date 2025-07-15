@@ -9,7 +9,7 @@ const Contact = () => (
       Have questions, feedback, or want to get in touch? We'd love to hear from you!
     </p>
     <p className="mb-4 text-gray-700 dark:text-gray-300">
-      Email us at <a href="mailto:gundappagaridhanush@gmail.com" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">your@email.com</a>
+      Email us at <a href="mailto:gundappagaridhanush@gmail.com" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">gundappagaridhanush@gmail.com</a>
     </p>
     {/* Placeholder for a contact form if you want to add one later */}
     {/* <form>...</form> */}
