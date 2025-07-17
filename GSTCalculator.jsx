@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import AdBanner from './AdBanner.jsx';
+import SEO from './SEO';
 
 const gstRates = [5, 12, 18, 28];
 const modeInfo = {
@@ -77,6 +78,24 @@ const GSTCalculator = () => {
 
   return (
     <>
+      <SEO
+        title="GST Calculator - Smart Student Tools"
+        description="Easily add or remove GST from any amount. Supports all GST rates, step-by-step explanations, and mobile-friendly design."
+        url="https://yourdomain.com/gst-calculator"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          'name': 'GST Calculator',
+          'description': 'Easily add or remove GST from any amount. Supports all GST rates, step-by-step explanations, and mobile-friendly design.',
+          'applicationCategory': 'CalculatorApplication',
+          'operatingSystem': 'All',
+          'url': 'https://yourdomain.com/gst-calculator',
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'Smart Student Tools'
+          }
+        }}
+      />
       <div className="w-full max-w-md mx-auto mt-6 sm:mt-10 p-2 sm:p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg flex flex-col items-center">
         <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">GST Calculator (India)</h2>
         {/* Calculation History */}

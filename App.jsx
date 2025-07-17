@@ -15,6 +15,7 @@ import FinancialCalculator from './FinancialCalculator';
 import CurrencyConverter from './CurrencyConverter';
 import BMICalculator from './BMI_Calculator.jsx';
 import UnitConverter from './UnitConverter.jsx';
+import SEO from './SEO';
 
 
 const GPAConverterTool = lazy(() => import('./GPAConverterTool.jsx'));
@@ -314,6 +315,30 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/" element={
           <>
+            <SEO
+              title="Smart Student Tools - Free Online Calculators & Academic Tools"
+              description="Ace your academics with free, modern calculators and tools: CGPA to Percentage Converter, Attendance Tracker, Grade Calculator, Study Planner, and more. Mobile-friendly, privacy-first."
+              url="https://yourdomain.com/"
+              jsonLd={[
+                {
+                  '@context': 'https://schema.org',
+                  '@type': 'WebSite',
+                  'name': 'Smart Student Tools',
+                  'url': 'https://yourdomain.com/',
+                  'publisher': {
+                    '@type': 'Organization',
+                    'name': 'Smart Student Tools'
+                  }
+                },
+                {
+                  '@context': 'https://schema.org',
+                  '@type': 'WebPage',
+                  'name': 'Smart Student Tools - Free Online Calculators & Academic Tools',
+                  'description': 'Ace your academics with free, modern calculators and tools: CGPA to Percentage Converter, Attendance Tracker, Grade Calculator, Study Planner, and more. Mobile-friendly, privacy-first.',
+                  'url': 'https://yourdomain.com/'
+                }
+              ]}
+            />
             {/* Hero Section */}
             <section className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-700' : 'bg-gradient-to-br from-blue-600 to-purple-600'} text-white py-20 px-4 overflow-hidden`}>
               <div className="absolute inset-0 z-0 opacity-10">

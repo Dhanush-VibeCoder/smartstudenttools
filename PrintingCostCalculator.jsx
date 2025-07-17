@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react';
 import CalculationHistory from './CalculationHistory.jsx';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import AdBanner from './AdBanner.jsx';
+import SEO from './SEO';
 
 const PRINT_HISTORY_KEY = 'printing_cost_history';
 
@@ -176,6 +175,8 @@ const PrintingCostCalculator = ({ darkMode }) => {
       return;
     }
     try {
+      const html2canvas = (await import('html2canvas')).default;
+      const jsPDF = (await import('jspdf')).default;
       const canvas = await html2canvas(resultRef.current, {
         backgroundColor: null,
         scale: 2,
@@ -203,201 +204,221 @@ const PrintingCostCalculator = ({ darkMode }) => {
   };
 
   return (
-    <div className={`p-4 font-inter min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-teal-50 to-blue-100'}`}>
-      <div className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-10 max-w-xl mx-auto transition hover:shadow-xl hover:scale-[1.02] duration-200`}>
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-extrabold leading-tight mb-2 text-gray-900 dark:text-gray-100 flex items-center justify-center whitespace-nowrap">
-            <span className="mr-2 text-2xl md:text-3xl">🖨️</span> Printing Cost Calculator
-          </h2>
-          <p className="text-base md:text-lg font-normal leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
-            Estimate your total printing cost for brochures, books, posters, and more. Includes extras like color, binding, and lamination.
-          </p>
-        </div>
-        {/* Input Card */}
-        <form
-          className={`p-6 rounded-xl shadow-inner border space-y-4 ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-200'}`}
-          onSubmit={e => { e.preventDefault(); handleCalculate(); }}
-          onKeyDown={handleKeyDown}
-        >
-          <h3 className={`text-2xl font-bold text-center mb-4 ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>Job Details</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="pages" className="block font-semibold mb-1">Number of Pages</label>
-              <input
-                id="pages"
-                name="pages"
-                type="text"
-                inputMode="numeric"
-                autoComplete="off"
-                value={inputs.pages}
-                onChange={handleInputChange}
-                placeholder="e.g., 20"
-                className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
-                aria-label="Number of Pages"
-              />
-            </div>
-            <div>
-              <label htmlFor="copies" className="block font-semibold mb-1">Number of Copies</label>
-              <input
-                id="copies"
-                name="copies"
-                type="text"
-                inputMode="numeric"
-                autoComplete="off"
-                value={inputs.copies}
-                onChange={handleInputChange}
-                placeholder="e.g., 50"
-                className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
-                aria-label="Number of Copies"
-              />
-            </div>
-            <div>
-              <label htmlFor="costPerPage" className="block font-semibold mb-1">Cost per Page (₹)</label>
-              <input
-                id="costPerPage"
-                name="costPerPage"
-                type="text"
-                inputMode="decimal"
-                autoComplete="off"
-                value={inputs.costPerPage}
-                onChange={handleInputChange}
-                placeholder="e.g., 1.5"
-                className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
-                aria-label="Cost per Page"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="font-semibold mb-1">Optional Extras</span>
-              {EXTRAS.map(extra => (
-                <div key={extra.key} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    id={extra.key}
-                    name={extra.key}
-                    checked={inputs.extras[extra.key]}
-                    onChange={handleInputChange}
-                    className="form-checkbox h-5 w-5 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
-                    aria-label={extra.label}
-                  />
-                  <label htmlFor={extra.key} className="flex items-center gap-1 cursor-pointer">
-                    {extra.label}
-                    <span
-                      tabIndex={0}
-                      className="ml-1 text-xs text-gray-400 dark:text-gray-300 cursor-pointer"
-                      title={extra.tooltip}
-                      aria-label={`Info: ${extra.tooltip}`}
-                    >
-                      ⓘ
-                    </span>
-                  </label>
-                  {inputs.extras[extra.key] && (
-                    <input
-                      type="text"
-                      inputMode="decimal"
-                      className={`ml-2 w-20 py-1 px-2 rounded border focus:outline-none focus:ring-2 focus:ring-teal-500 ${darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
-                      value={extraCosts[extra.key]}
-                      onChange={e => handleExtraCostChange(e, extra.key)}
-                      aria-label={`Cost for ${extra.label}`}
-                      placeholder={extra.key === 'color' ? '₹/pg' : '₹/copy'}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+    <>
+      <SEO
+        title="Printing Cost Calculator - Smart Student Tools"
+        description="Estimate your printing costs with extras like color, binding, and lamination. Save history, download results, and more."
+        url="https://yourdomain.com/printing-cost-calculator"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          'name': 'Printing Cost Calculator',
+          'description': 'Estimate your printing costs with extras like color, binding, and lamination. Save history, download results, and more.',
+          'applicationCategory': 'CalculatorApplication',
+          'operatingSystem': 'All',
+          'url': 'https://yourdomain.com/printing-cost-calculator',
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'Smart Student Tools'
+          }
+        }}
+      />
+      <div className={`p-4 font-inter min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-br from-teal-50 to-blue-100'}`}>
+        <div className={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-10 max-w-xl mx-auto transition hover:shadow-xl hover:scale-[1.02] duration-200`}>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-extrabold leading-tight mb-2 text-gray-900 dark:text-gray-100 flex items-center justify-center whitespace-nowrap">
+              <span className="mr-2 text-2xl md:text-3xl">🖨️</span> Printing Cost Calculator
+            </h2>
+            <p className="text-base md:text-lg font-normal leading-relaxed text-gray-700 dark:text-gray-300 mb-4">
+              Estimate your total printing cost for brochures, books, posters, and more. Includes extras like color, binding, and lamination.
+            </p>
           </div>
-          {error && <p className="text-red-500 text-xs italic mt-2">{error}</p>}
-          <div className="flex gap-4 mt-4">
-            <button
-              type="submit"
-              className={`flex-1 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${darkMode ? 'bg-blue-700 hover:bg-blue-600 text-white focus:ring-blue-500' : 'bg-blue-800 hover:bg-blue-900 text-white focus:ring-blue-800'}`}
-            >
-              Calculate
-            </button>
-            <button
-              type="button"
-              onClick={handleClear}
-              className={`flex-1 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-100 focus:ring-gray-500' : 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400'}`}
-            >
-              Reset
-            </button>
-          </div>
-        </form>
-
-        {/* Result Card */}
-        {result && !error && (
-          <>
-          <div
-            ref={resultRef}
-            className={`mt-8 text-center p-6 rounded-xl shadow-md transform transition-all duration-500 ease-out ${isAnimating ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'} ${darkMode ? 'bg-green-900 border-green-700 text-green-100' : 'bg-green-50 border-green-200 text-green-900 border'}`}
+          {/* Input Card */}
+          <form
+            className={`p-6 rounded-xl shadow-inner border space-y-4 ${darkMode ? 'bg-gray-900 border-gray-700' : 'bg-gray-50 border-gray-200'}`}
+            onSubmit={e => { e.preventDefault(); handleCalculate(); }}
+            onKeyDown={handleKeyDown}
           >
-            <p className="text-xl font-semibold mb-2">Total Printing Cost:</p>
-            <p className="text-5xl font-extrabold mb-4">₹{result.totalCost}</p>
-            <div className="text-left mx-auto max-w-md">
-              <h4 className="font-bold mb-2">Breakdown:</h4>
-              <ul className="list-disc list-inside text-base space-y-1">
-                {result.breakdown.map((line, i) => (
-                  <li key={i}>{line}</li>
+            <h3 className={`text-2xl font-bold text-center mb-4 ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>Job Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="pages" className="block font-semibold mb-1">Number of Pages</label>
+                <input
+                  id="pages"
+                  name="pages"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={inputs.pages}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 20"
+                  className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                  aria-label="Number of Pages"
+                />
+              </div>
+              <div>
+                <label htmlFor="copies" className="block font-semibold mb-1">Number of Copies</label>
+                <input
+                  id="copies"
+                  name="copies"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="off"
+                  value={inputs.copies}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 50"
+                  className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                  aria-label="Number of Copies"
+                />
+              </div>
+              <div>
+                <label htmlFor="costPerPage" className="block font-semibold mb-1">Cost per Page (₹)</label>
+                <input
+                  id="costPerPage"
+                  name="costPerPage"
+                  type="text"
+                  inputMode="decimal"
+                  autoComplete="off"
+                  value={inputs.costPerPage}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 1.5"
+                  className={`w-full py-3 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 ${error ? 'border-red-500' : darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                  aria-label="Cost per Page"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <span className="font-semibold mb-1">Optional Extras</span>
+                {EXTRAS.map(extra => (
+                  <div key={extra.key} className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      id={extra.key}
+                      name={extra.key}
+                      checked={inputs.extras[extra.key]}
+                      onChange={handleInputChange}
+                      className="form-checkbox h-5 w-5 text-teal-600 focus:ring-teal-500 border-gray-300 rounded"
+                      aria-label={extra.label}
+                    />
+                    <label htmlFor={extra.key} className="flex items-center gap-1 cursor-pointer">
+                      {extra.label}
+                      <span
+                        tabIndex={0}
+                        className="ml-1 text-xs text-gray-400 dark:text-gray-300 cursor-pointer"
+                        title={extra.tooltip}
+                        aria-label={`Info: ${extra.tooltip}`}
+                      >
+                        ⓘ
+                      </span>
+                    </label>
+                    {inputs.extras[extra.key] && (
+                      <input
+                        type="text"
+                        inputMode="decimal"
+                        className={`ml-2 w-20 py-1 px-2 rounded border focus:outline-none focus:ring-2 focus:ring-teal-500 ${darkMode ? 'bg-gray-700 border-gray-600 text-gray-100' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                        value={extraCosts[extra.key]}
+                        onChange={e => handleExtraCostChange(e, extra.key)}
+                        aria-label={`Cost for ${extra.label}`}
+                        placeholder={extra.key === 'color' ? '₹/pg' : '₹/copy'}
+                      />
+                    )}
+                  </div>
                 ))}
-              </ul>
-            </div>
-            {/* Copy & Feedback */}
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
-              <button
-                onClick={handleCopy}
-                className={`font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${copied ? 'bg-teal-600 text-white' : darkMode ? 'bg-teal-800 hover:bg-teal-900 text-white' : 'bg-teal-700 hover:bg-teal-800 text-white'}`}
-                aria-label="Copy result to clipboard"
-              >
-                {copied ? 'Copied!' : 'Copy Result'}
-              </button>
-              <div className="flex items-center gap-2">
-                <span className={`text-md font-semibold ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}>⭐ Was this accurate?</span>
-                <button
-                  onClick={() => setFeedbackGiven('yes')}
-                  className={`font-bold py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${feedbackGiven === 'yes' ? 'bg-green-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-green-600' : 'bg-gray-200 text-gray-700 hover:bg-green-100'}`}
-                  aria-label="Feedback Yes"
-                >
-                  👍
-                </button>
-                <button
-                  onClick={() => setFeedbackGiven('no')}
-                  className={`font-bold py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${feedbackGiven === 'no' ? 'bg-red-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-red-600' : 'bg-gray-200 text-gray-700 hover:bg-red-100'}`}
-                  aria-label="Feedback No"
-                >
-                  👎
-                </button>
               </div>
             </div>
-          </div>
-          <div className="flex justify-center mt-4">
-            <button
-              onClick={generatePdf}
-              className={`w-full font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${darkMode ? 'bg-teal-800 hover:bg-teal-900 text-white' : 'bg-teal-700 hover:bg-teal-800 text-white'}`}
+            {error && <p className="text-red-500 text-xs italic mt-2">{error}</p>}
+            <div className="flex gap-4 mt-4">
+              <button
+                type="submit"
+                className={`flex-1 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${darkMode ? 'bg-blue-700 hover:bg-blue-600 text-white focus:ring-blue-500' : 'bg-blue-800 hover:bg-blue-900 text-white focus:ring-blue-800'}`}
+              >
+                Calculate
+              </button>
+              <button
+                type="button"
+                onClick={handleClear}
+                className={`flex-1 font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-gray-100 focus:ring-gray-500' : 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-400'}`}
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+
+          {/* Result Card */}
+          {result && !error && (
+            <>
+            <div
+              ref={resultRef}
+              className={`mt-8 text-center p-6 rounded-xl shadow-md transform transition-all duration-500 ease-out ${isAnimating ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'} ${darkMode ? 'bg-green-900 border-green-700 text-green-100' : 'bg-green-50 border-green-200 text-green-900 border'}`}
             >
-              Download PDF
-            </button>
+              <p className="text-xl font-semibold mb-2">Total Printing Cost:</p>
+              <p className="text-5xl font-extrabold mb-4">₹{result.totalCost}</p>
+              <div className="text-left mx-auto max-w-md">
+                <h4 className="font-bold mb-2">Breakdown:</h4>
+                <ul className="list-disc list-inside text-base space-y-1">
+                  {result.breakdown.map((line, i) => (
+                    <li key={i}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              {/* Copy & Feedback */}
+              <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-6">
+                <button
+                  onClick={handleCopy}
+                  className={`font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${copied ? 'bg-teal-600 text-white' : darkMode ? 'bg-teal-800 hover:bg-teal-900 text-white' : 'bg-teal-700 hover:bg-teal-800 text-white'}`}
+                  aria-label="Copy result to clipboard"
+                >
+                  {copied ? 'Copied!' : 'Copy Result'}
+                </button>
+                <div className="flex items-center gap-2">
+                  <span className={`text-md font-semibold ${darkMode ? 'text-gray-200' : 'text-gray-700'}`}>⭐ Was this accurate?</span>
+                  <button
+                    onClick={() => setFeedbackGiven('yes')}
+                    className={`font-bold py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${feedbackGiven === 'yes' ? 'bg-green-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-green-600' : 'bg-gray-200 text-gray-700 hover:bg-green-100'}`}
+                    aria-label="Feedback Yes"
+                  >
+                    👍
+                  </button>
+                  <button
+                    onClick={() => setFeedbackGiven('no')}
+                    className={`font-bold py-2 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 ${feedbackGiven === 'no' ? 'bg-red-500 text-white' : darkMode ? 'bg-gray-700 text-gray-300 hover:bg-red-600' : 'bg-gray-200 text-gray-700 hover:bg-red-100'}`}
+                    aria-label="Feedback No"
+                  >
+                    👎
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={generatePdf}
+                className={`w-full font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${darkMode ? 'bg-teal-800 hover:bg-teal-900 text-white' : 'bg-teal-700 hover:bg-teal-800 text-white'}`}
+              >
+                Download PDF
+              </button>
+            </div>
+            </>
+          )}
+
+          {/* Calculation History below the result */}
+          {result && !error && (
+            <CalculationHistory historyKey={PRINT_HISTORY_KEY} title="Printing Cost History" darkMode={darkMode} showUniversity={false} showProgress={false} />
+          )}
+
+          {/* Info Section */}
+          <div className={`my-8 p-5 rounded-lg border shadow-sm space-y-3 ${darkMode ? 'bg-blue-900 border-blue-700' : 'bg-blue-50 border-blue-200'}`}>
+            <h3 className={`font-bold text-lg mb-3 ${darkMode ? 'text-blue-200' : 'text-blue-800'}`}>ℹ️ How Printing Cost is Calculated</h3>
+            <ul className={`list-disc list-inside text-sm space-y-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <li><b>Base Print Cost</b>: Number of pages × Number of copies × Cost per page.</li>
+              <li><b>Color Printing</b>: Adds extra cost per page if selected.</li>
+              <li><b>Binding/Lamination</b>: Adds a fixed cost per copy if selected.</li>
+              <li>All extras are optional and can be customized.</li>
+            </ul>
+            <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Tip: Adjust the extra costs as per your local print shop's rates.</p>
           </div>
-          </>
-        )}
-
-        {/* Calculation History below the result */}
-        {result && !error && (
-          <CalculationHistory historyKey={PRINT_HISTORY_KEY} title="Printing Cost History" darkMode={darkMode} showUniversity={false} showProgress={false} />
-        )}
-
-        {/* Info Section */}
-        <div className={`my-8 p-5 rounded-lg border shadow-sm space-y-3 ${darkMode ? 'bg-blue-900 border-blue-700' : 'bg-blue-50 border-blue-200'}`}>
-          <h3 className={`font-bold text-lg mb-3 ${darkMode ? 'text-blue-200' : 'text-blue-800'}`}>ℹ️ How Printing Cost is Calculated</h3>
-          <ul className={`list-disc list-inside text-sm space-y-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            <li><b>Base Print Cost</b>: Number of pages × Number of copies × Cost per page.</li>
-            <li><b>Color Printing</b>: Adds extra cost per page if selected.</li>
-            <li><b>Binding/Lamination</b>: Adds a fixed cost per copy if selected.</li>
-            <li>All extras are optional and can be customized.</li>
-          </ul>
-          <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Tip: Adjust the extra costs as per your local print shop's rates.</p>
         </div>
+        <AdBanner />
       </div>
-      <AdBanner />
-    </div>
+    </>
   );
 };
 

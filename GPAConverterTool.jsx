@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 const ConversionTable = React.lazy(() => import('./ConversionTable'));
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import CalculationHistory from './CalculationHistory.jsx';
 
 // --- GPAConverterTool Component ---
@@ -222,6 +220,8 @@ const GPAConverterTool = ({ darkMode }) => {
         return;
       }
       try {
+        const html2canvas = (await import('html2canvas')).default;
+        const jsPDF = (await import('jspdf')).default;
         const canvas = await html2canvas(resultCardRef.current, {
           backgroundColor: null,
           scale: 2,

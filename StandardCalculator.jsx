@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AdBanner from './AdBanner.jsx';
+import SEO from './SEO';
 
 const memoryButtons = ['MC', 'MR', 'M+', 'M-'];
 const buttonValues = [
@@ -258,6 +259,24 @@ const StandardCalculator = () => {
 
   return (
     <>
+      <SEO
+        title="Standard Calculator - Smart Student Tools"
+        description="A fast, modern standard calculator for students. Perform basic arithmetic operations with ease. Mobile-friendly, free, and privacy-first."
+        url="https://yourdomain.com/calculator"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          'name': 'Standard Calculator',
+          'description': 'A fast, modern standard calculator for students. Perform basic arithmetic operations with ease. Mobile-friendly, free, and privacy-first.',
+          'applicationCategory': 'CalculatorApplication',
+          'operatingSystem': 'All',
+          'url': 'https://yourdomain.com/calculator',
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'Smart Student Tools'
+          }
+        }}
+      />
       <div className="w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto mt-8 p-2 sm:p-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl flex flex-col items-center select-none">
         <div className={`w-full mb-4 rounded-2xl shadow-lg p-4 text-3xl font-bold text-center ${typeof darkMode !== 'undefined' && darkMode ? 'bg-gray-800 text-white' : 'bg-white text-blue-900'}`}>Standard Calculator</div>
         {/* Memory Indicator */}
