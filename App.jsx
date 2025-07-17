@@ -1,10 +1,20 @@
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import PrivacyPolicy from './PrivacyPolicy';
 import About from './About';
 import Contact from './Contact';
 import AdBanner from './AdBanner';
 import { Analytics } from '@vercel/analytics/react';
+import StandardCalculator from './StandardCalculator';
+import PercentageCalculator from './PercentageCalculator';
+import GSTCalculator from './GSTCalculator';
+import PrintingCostCalculator from './PrintingCostCalculator';
+import ExpenseTracker from './ExpenseTracker';
+import ScientificCalculator from './ScientificCalculator';
+import FinancialCalculator from './FinancialCalculator';
+import CurrencyConverter from './CurrencyConverter';
+import BMICalculator from './BMI_Calculator.jsx';
+import UnitConverter from './UnitConverter.jsx';
 
 
 const GPAConverterTool = lazy(() => import('./GPAConverterTool.jsx'));
@@ -96,10 +106,116 @@ const Icon = ({ name, className }) => {
   );
 };
 
+// Header component that uses useLocation
+const AppHeader = ({ darkMode, toggleDarkMode, dropdownOpen, setDropdownOpen, tools }) => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  return (
+    <header className={`${darkMode ? 'bg-gray-800' : 'bg-blue-700'} text-white p-4 shadow-md sticky top-0 z-50`}>
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center rounded-lg py-2 px-4">
+        <div className="text-2xl font-bold mb-2 sm:mb-0 flex items-center flex-col items-start sm:flex-row sm:items-center">
+          <div className="flex items-center">
+            <img src="/logo.png" alt="Logo" className="w-12 h-12 rounded-full mr-3 bg-white shadow" />
+            <span>Smart Student Tools</span>
+          </div>
+          <span className="text-base font-light opacity-80 mt-1 sm:ml-4 sm:mt-0">Your all-in-one academic assistant</span>
+        </div>
+        <nav className="flex flex-wrap justify-center sm:justify-end gap-3 sm:gap-4 relative">
+          {isHome ? (
+            // Show all tool buttons on home page
+            <>
+              {tools.map(tool => (
+                <a
+                  key={`nav-${tool.id}`}
+                  href={`#${tool.id}`}
+                  onClick={(e) => { e.preventDefault(); document.getElementById(tool.id)?.scrollIntoView({ behavior: 'smooth' }); }}
+                  className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'} px-3 py-1 rounded-lg text-sm transition-colors duration-200`}
+                >
+                  {tool.title.split(' ')[0]}
+                </a>
+              ))}
+              {/* Dropdown for Calculators */}
+              <div className="relative">
+                <button
+                  onClick={() => setDropdownOpen((open) => !open)}
+                  className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'} px-3 py-1 rounded-lg text-sm font-semibold transition-colors duration-200 focus:outline-none`}
+                >
+                  Calculators ▼
+                </button>
+                {dropdownOpen && (
+                  <div
+                    className={`absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50`}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <Link to="/calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-t-lg" onClick={() => setDropdownOpen(false)}>Standard Calculator</Link>
+                    <Link to="/gpa-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>CGPA Converter</Link>
+                    <Link to="/percentage-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Percentage Calculator</Link>
+                    <Link to="/gst-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>GST Calculator</Link>
+                    <Link to="/printing-cost-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Printing Cost Calculator</Link>
+                    <Link to="/expense-tracker" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Expense Tracker</Link>
+                    <Link to="/scientific-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Scientific Calculator</Link>
+                    <Link to="/financial-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Financial Calculator</Link>
+                    <Link to="/currency-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Currency Converter</Link>
+                    <Link to="/bmi-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>BMI Calculator</Link>
+                    <Link to="/unit-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-b-lg" onClick={() => setDropdownOpen(false)}>Unit Converter</Link>
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            // Show Home button and Calculators dropdown on other pages
+            <>
+              <Link
+                to="/"
+                className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'} px-3 py-1 rounded-lg text-sm font-semibold transition-colors duration-200 focus:outline-none`}
+              >
+                Home
+              </Link>
+              <div className="relative">
+                <button
+                  onClick={() => setDropdownOpen((open) => !open)}
+                  className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'} px-3 py-1 rounded-lg text-sm font-semibold transition-colors duration-200 focus:outline-none`}
+                >
+                  Calculators ▼
+                </button>
+                {dropdownOpen && (
+                  <div
+                    className={`absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50`}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <Link to="/calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-t-lg" onClick={() => setDropdownOpen(false)}>Standard Calculator</Link>
+                    <Link to="/gpa-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>CGPA Converter</Link>
+                    <Link to="/percentage-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Percentage Calculator</Link>
+                    <Link to="/gst-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>GST Calculator</Link>
+                    <Link to="/printing-cost-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Printing Cost Calculator</Link>
+                    <Link to="/expense-tracker" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Expense Tracker</Link>
+                    <Link to="/scientific-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Scientific Calculator</Link>
+                    <Link to="/financial-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Financial Calculator</Link>
+                    <Link to="/currency-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>Currency Converter</Link>
+                    <Link to="/bmi-calculator" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100" onClick={() => setDropdownOpen(false)}>BMI Calculator</Link>
+                    <Link to="/unit-converter" className="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-b-lg" onClick={() => setDropdownOpen(false)}>Unit Converter</Link>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+          <button
+            onClick={toggleDarkMode}
+            className={`ml-2 px-3 py-1 rounded-lg text-sm font-semibold transition-colors duration-200 focus:outline-none ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'}`}
+            title="Toggle dark mode"
+          >
+            {darkMode ? '🌙' : '☀️'}
+          </button>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
 // Main App component for the Smart Student Tools home page
 const App = () => {
   const [darkMode, setDarkMode] = useState(false); // Dark mode state
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const tools = [
     {
@@ -174,41 +290,30 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <AppHeader
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        dropdownOpen={dropdownOpen}
+        setDropdownOpen={setDropdownOpen}
+        tools={tools}
+      />
       <Routes>
+        <Route path="/calculator" element={<StandardCalculator />} />
+        <Route path="/gpa-converter" element={<GPAConverterTool darkMode={darkMode} />} />
+        <Route path="/percentage-calculator" element={<PercentageCalculator />} />
+        <Route path="/gst-calculator" element={<GSTCalculator />} />
+        <Route path="/printing-cost-calculator" element={<PrintingCostCalculator darkMode={darkMode} />} />
+        <Route path="/expense-tracker" element={<ExpenseTracker darkMode={darkMode} />} />
+        <Route path="/scientific-calculator" element={<ScientificCalculator darkMode={darkMode} />} />
+        <Route path="/financial-calculator" element={<FinancialCalculator darkMode={darkMode} />} />
+        <Route path="/currency-converter" element={<CurrencyConverter darkMode={darkMode} />} />
+        <Route path="/bmi-calculator" element={<BMICalculator />} />
+        <Route path="/unit-converter" element={<UnitConverter />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/" element={
           <>
-            {/* Header */}
-            <header className={`${darkMode ? 'bg-gray-800' : 'bg-blue-700'} text-white p-4 shadow-md sticky top-0 z-50`}>
-              <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center rounded-lg py-2 px-4">
-                <div className="text-2xl font-bold mb-2 sm:mb-0 flex items-center flex-col items-start sm:flex-row sm:items-center">
-                  <div className="flex items-center">
-                    <img src="/logo.png" alt="Logo" className="w-12 h-12 rounded-full mr-3 bg-white shadow" />
-                    <span>Smart Student Tools</span>
-                  </div>
-                  <span className="text-base font-light opacity-80 mt-1 sm:ml-4 sm:mt-0">Your all-in-one academic assistant</span>
-                </div>
-                <nav className="flex flex-wrap justify-center sm:justify-end gap-3 sm:gap-4">
-                  {tools.map(tool => (
-                    <a
-                      key={`nav-${tool.id}`}
-                      href={`#${tool.id}`}
-                      onClick={(e) => { e.preventDefault(); scrollToSection(tool.id); }}
-                      className={`${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-blue-800 hover:bg-blue-900'} px-3 py-1 rounded-lg text-sm transition-colors duration-200`}
-                    >
-                      {tool.title.split(' ')[0]}
-                    </a>
-                  ))}
-                  <button
-                    onClick={toggleDarkMode}
-                    className={`p-2 rounded-full ${darkMode ? 'bg-yellow-400 text-gray-900' : 'bg-gray-200 text-gray-800'} transition-all duration-300`}
-                    title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                  >
-                    {darkMode ? '💡' : '🌙'}
-                  </button>
-                </nav>
-              </div>
-            </header>
-
             {/* Hero Section */}
             <section className={`relative ${darkMode ? 'bg-gradient-to-br from-gray-800 to-gray-700' : 'bg-gradient-to-br from-blue-600 to-purple-600'} text-white py-20 px-4 overflow-hidden`}>
               <div className="absolute inset-0 z-0 opacity-10">
@@ -281,9 +386,6 @@ const App = () => {
             </main>
           </>
         } />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       {/* Features Banner (remains the same) */}
