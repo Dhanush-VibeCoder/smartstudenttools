@@ -1,10 +1,10 @@
 import React from 'react';
-import AdBanner from './AdBanner';
+import AdsterraBanner from './AdsterraBanner';
 
 const Contact = () => (
   <div className="max-w-2xl mx-auto p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg mt-12 mb-12">
     <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">Contact Us</h1>
-    <div className="my-6 flex justify-center"><AdBanner /></div>
+    <div className="my-6 flex justify-center"><AdsterraBanner /></div>
     <p className="mb-4 text-gray-700 dark:text-gray-300">
       Have questions, feedback, or want to get in touch? We'd love to hear from you!
     </p>
@@ -13,7 +13,7 @@ const Contact = () => (
     </p>
     {/* Placeholder for a contact form if you want to add one later */}
     {/* <form>...</form> */}
-    <div className="my-6 flex justify-center"><AdBanner /></div>
+    <div className="my-6 flex justify-center"><AdsterraBanner /></div>
   </div>
 );
 
