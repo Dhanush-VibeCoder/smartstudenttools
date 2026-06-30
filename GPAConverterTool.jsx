@@ -792,7 +792,8 @@ const GPAConverterTool = ({ darkMode }) => {
                   </button>
               </div>
           </div>
-            
+          {/* Hide AdBanner in popup mode */}
+          {!popup && <AdsterraBanner />}
         </div>
       </div>
     );
