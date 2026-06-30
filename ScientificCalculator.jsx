@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import CalculationHistory from './CalculationHistory.jsx';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const SCI_HISTORY_KEY = 'scientific_calc_history';
@@ -260,7 +260,7 @@ const ScientificCalculator = ({ darkMode }) => {
           {/* Calculation History below the calculator */}
           <CalculationHistory historyKey={SCI_HISTORY_KEY} title="Scientific Calculator History" darkMode={darkMode} showUniversity={false} showProgress={false} />
         </div>
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
