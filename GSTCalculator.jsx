@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const gstRates = [5, 12, 18, 28];
@@ -246,7 +246,7 @@ const GSTCalculator = () => {
           )}
         </form>
       </div>
-      <AdBanner />
+      <AdsterraBanner />
     </>
   );
 };
