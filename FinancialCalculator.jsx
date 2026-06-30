@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import CalculationHistory from './CalculationHistory.jsx';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const FIN_HISTORY_KEY = 'financial_calc_history';
@@ -479,7 +479,7 @@ const FinancialCalculator = ({ darkMode, onToggleDarkMode }) => {
         </div>
         {/* Calculation History below the calculator */}
         <CalculationHistory historyKey={FIN_HISTORY_KEY} title="Financial Calculator History" darkMode={darkMode} showUniversity={false} showProgress={false} />
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
