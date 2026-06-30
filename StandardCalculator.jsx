@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const memoryButtons = ['MC', 'MR', 'M+', 'M-'];
@@ -353,7 +353,7 @@ const StandardCalculator = () => {
           })}
         </div>
       </div>
-      <AdBanner />
+      <AdsterraBanner />
     </>
   );
 };
