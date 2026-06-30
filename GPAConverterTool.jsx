@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 const ConversionTable = React.lazy(() => import('./ConversionTable'));
 import CalculationHistory from './CalculationHistory.jsx';
+import AdBanner from './AdBanner';
 
 // --- GPAConverterTool Component ---
 const GPAConverterTool = ({ darkMode }) => {
