@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import PrivacyPolicy from './PrivacyPolicy';
 import About from './About';
 import Contact from './Contact';
-import AdBanner from './AdBanner';
 import AdsterraBanner from './AdsterraBanner';
 import { Analytics } from '@vercel/analytics/react';
 import StandardCalculator from './StandardCalculator';
@@ -399,14 +398,14 @@ const App = () => {
                     </section>
                     {idx === 1 && (
                       <div className="my-8 flex justify-center">
-                        <AdBanner />
+                        <AdsterraBanner />
                       </div>
                     )}
                   </React.Fragment>
                 ))}
                 {/* Ad at the bottom of main content */}
                 <div className="my-8 flex justify-center">
-                  <AdBanner />
+                  <AdsterraBanner />
                 </div>
               </div>
             </main>
