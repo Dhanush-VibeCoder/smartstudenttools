@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import AdBanner from './AdBanner';
 import SEO from './SEO';
+import AdsterraBanner from './AdsterraBanner';
 
 const modeInfo = {
   of: 'Find what X% of Y is (e.g., 15% of 200 = 30).',
@@ -267,7 +267,7 @@ const PercentageCalculator = () => {
             </div>
           )}
         </form>
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
