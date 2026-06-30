@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const CATEGORIES = [
@@ -250,7 +250,7 @@ const UnitConverter = () => {
             </div>
           </div>
         </div>
-        <AdBanner />
+        {!popup && <AdsterraBanner />}
       </div>
     </>
   );
