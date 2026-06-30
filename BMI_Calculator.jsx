@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import html2canvas from 'html2canvas';
 import SEO from './SEO';
 
@@ -420,7 +420,7 @@ const BMICalculator = () => {
             </div>
           </div>
         )}
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
