@@ -250,7 +250,7 @@ const UnitConverter = () => {
             </div>
           </div>
         </div>
-        {!popup && <AdsterraBanner />}
+        <AdsterraBanner />
       </div>
     </>
   );
