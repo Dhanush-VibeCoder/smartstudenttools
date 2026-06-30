@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import CalculationHistory from './CalculationHistory.jsx';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const PRINT_HISTORY_KEY = 'printing_cost_history';
@@ -416,7 +416,7 @@ const PrintingCostCalculator = ({ darkMode }) => {
             <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>Tip: Adjust the extra costs as per your local print shop's rates.</p>
           </div>
         </div>
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
