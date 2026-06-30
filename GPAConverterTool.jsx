@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
 const ConversionTable = React.lazy(() => import('./ConversionTable'));
 import CalculationHistory from './CalculationHistory.jsx';
-import AdBanner from './AdBanner';
+import AdsterraBanner from './AdsterraBanner';
 
 // --- GPAConverterTool Component ---
 const GPAConverterTool = ({ darkMode }) => {
@@ -792,6 +792,7 @@ const GPAConverterTool = ({ darkMode }) => {
                   </button>
               </div>
           </div>
+            
         </div>
       </div>
     );
