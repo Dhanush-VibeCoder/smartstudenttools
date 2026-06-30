@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import PrivacyPolicy from './PrivacyPolicy';
 import About from './About';
 import Contact from './Contact';
+import TermsConditions from './TermsConditions';
 import AdsterraBanner from './AdsterraBanner';
 import { Analytics } from '@vercel/analytics/react';
 import StandardCalculator from './StandardCalculator';
@@ -440,6 +441,7 @@ const App = () => {
         <Link to="/about" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">About</Link>
         <Link to="/contact" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">Contact</Link>
         <Link to="/privacy-policy" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Privacy Policy</Link>
+        <Link to="/terms-conditions" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Terms & Conditions</Link>
       </footer>
       <Analytics />
     </BrowserRouter>
