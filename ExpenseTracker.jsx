@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import CalculationHistory from './CalculationHistory.jsx';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const EXPENSE_HISTORY_KEY = 'expense_tracker_history';
@@ -367,7 +367,7 @@ const ExpenseTracker = ({ darkMode }) => {
         </div>
         {/* Calculation History below the tracker */}
         <CalculationHistory historyKey={EXPENSE_HISTORY_KEY} title="Expense Tracker History" darkMode={darkMode} showUniversity={false} showProgress={false} />
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
