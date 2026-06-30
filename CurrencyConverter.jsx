@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AdBanner from './AdBanner.jsx';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const CURRENCIES = ['USD', 'EUR', 'INR', 'GBP', 'JPY', 'AUD', 'CAD', 'CNY', 'Other'];
@@ -186,7 +186,7 @@ const CurrencyConverter = ({ darkMode }) => {
             )}
           </div>
         </div>
-        <AdBanner />
+        <AdsterraBanner />
       </div>
     </>
   );
