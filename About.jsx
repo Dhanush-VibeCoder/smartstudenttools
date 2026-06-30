@@ -1,5 +1,5 @@
 import React from 'react';
-import AdBanner from './AdBanner';
+import AdsterraBanner from './AdsterraBanner';
 import SEO from './SEO';
 
 const About = () => (
@@ -28,7 +28,7 @@ const About = () => (
       <p className="mb-4 text-gray-700 dark:text-gray-300">
         If you have suggestions or want to contribute, feel free to <a href="mailto:gundappagaridhanush@gmail.com" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">contact us</a>.
       </p>
-      <div className="my-6 flex justify-center"><AdBanner /></div>
+      <div className="my-6 flex justify-center"><AdsterraBanner /></div>
     </div>
   </>
 );
