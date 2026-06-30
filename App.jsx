@@ -440,7 +440,7 @@ const App = () => {
       <footer className="w-full text-center py-6 text-xs text-gray-500 dark:text-gray-400">
         <Link to="/about" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">About</Link>
         <Link to="/contact" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">Contact</Link>
-        <Link to="/privacy-policy" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Privacy Policy</Link>
+        <Link to="/privacy-policy" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white mr-4">Privacy Policy</Link>
         <Link to="/terms-conditions" className="underline text-blue-800 hover:text-blue-900 dark:text-blue-300 dark:hover:text-white">Terms & Conditions</Link>
       </footer>
       <Analytics />
