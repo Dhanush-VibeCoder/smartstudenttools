@@ -4,6 +4,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import About from './About';
 import Contact from './Contact';
 import AdBanner from './AdBanner';
+import AdsterraBanner from './AdsterraBanner';
 import { Analytics } from '@vercel/analytics/react';
 import StandardCalculator from './StandardCalculator';
 import PercentageCalculator from './PercentageCalculator';
