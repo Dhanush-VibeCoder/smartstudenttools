@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 
 // Paste the full GradeCalculator component code here from App.jsx
 // --- GradeCalculator Component ---
@@ -22,6 +23,25 @@ const GradeCalculator = ({ darkMode }) => {
     const [resultColor, setResultColor] = useState('');
     const [error, setError] = useState('');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [shareCopied, setShareCopied] = useState(false);
+
+    const getShareText = () => {
+      const gpaMsg = weightedGpa ? ` (Weighted GPA: ${weightedGpa})` : '';
+      return `My overall grade is ${finalGrade} with ${totalPercentage}%${gpaMsg}!\nCalculate your college grades on Smart Studies: https://smartstudenttools.xyz/grade-calculator`;
+    };
+
+    const handleShareWhatsApp = () => {
+      const text = getShareText();
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    };
+
+    const handleCopyResult = () => {
+      const text = getShareText();
+      navigator.clipboard.writeText(text).then(() => {
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 2500);
+      });
+    };
   
     // What-if simulator states
     const [simulatedSubjectId, setSimulatedSubjectId] = useState('');
@@ -673,8 +693,34 @@ const GradeCalculator = ({ darkMode }) => {
                 <p className="text-xl font-semibold mb-4">Weighted GPA (4.0 Scale): {weightedGpa}</p>
               )}
               <p className="text-2xl font-bold">Final Grade: {finalGrade}</p>
+              
+              <div className="flex flex-wrap justify-center gap-3 pt-4">
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold text-sm shadow transition-all duration-200 transform hover:scale-105"
+                >
+                  <span>📲</span> Share on WhatsApp
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopyResult}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm shadow transition-all duration-200 transform hover:scale-105 ${
+                    shareCopied
+                      ? 'bg-emerald-700 text-white'
+                      : darkMode
+                      ? 'bg-gray-700 hover:bg-gray-600 text-white'
+                      : 'bg-white hover:bg-gray-100 text-gray-800 border border-gray-200'
+                  }`}
+                >
+                  <span>{shareCopied ? '✅' : '📋'}</span> {shareCopied ? 'Copied to Clipboard!' : 'Copy Grade'}
+                </button>
+              </div>
             </div>
           )}
+
+          {/* Recommended Next Tools Bar */}
+          <RecommendedTools currentTool="grade-calculator" darkMode={darkMode} />
   
           {/* Grade Scale Chart Card */}
           <div className={`p-5 rounded-lg border shadow-sm space-y-4 ${darkMode ? 'bg-blue-900 border-blue-700' : 'bg-blue-50 border-blue-200'}`}>

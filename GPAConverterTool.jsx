@@ -4,6 +4,7 @@ import SEO from './SEO';
 const ConversionTable = React.lazy(() => import('./ConversionTable'));
 import CalculationHistory from './CalculationHistory.jsx';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 
 // --- GPAConverterTool Component ---
 const GPAConverterTool = ({ darkMode }) => {
@@ -690,6 +691,9 @@ const GPAConverterTool = ({ darkMode }) => {
           {convertedResult !== null && !error && (
             <CalculationHistory />
           )}
+
+          {/* Recommended Next Tools Bar */}
+          <RecommendedTools currentTool="gpa-converter" darkMode={darkMode} />
 
           {/* Conversion Table below the calculator result */}
           <div className="my-8">

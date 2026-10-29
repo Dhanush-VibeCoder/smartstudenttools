@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import html2canvas from 'html2canvas';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 
 
 // --- AttendanceTracker Component ---
@@ -280,6 +281,9 @@ const AttendanceTracker = ({ darkMode }) => {
             </div>
           )}
         </div>
+
+        {/* Recommended Next Tools Bar */}
+        <RecommendedTools currentTool="attendance-tracker" darkMode={darkMode} />
 
         {/* Alerts Section */}
         {(showAlertLowAttendance || showAlertMissedClasses) && (

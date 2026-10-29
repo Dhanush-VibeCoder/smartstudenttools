@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 
 const CitationGenerator = ({ darkMode }) => {
   const [sourceType, setSourceType] = useState('journal'); // 'journal', 'website', 'book'
@@ -457,6 +458,9 @@ const CitationGenerator = ({ darkMode }) => {
             </ol>
           </div>
         )}
+
+        {/* Recommended Next Tools Bar */}
+        <RecommendedTools currentTool="citation-generator" darkMode={darkMode} />
 
         {/* Responsive Adsterra Unit */}
         <AdsterraBanner />
