@@ -125,3 +125,4 @@ const RecommendedTools = ({ currentTool, darkMode }) => {
 };
 
 export default RecommendedTools;
+

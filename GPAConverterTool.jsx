@@ -443,6 +443,36 @@ const GPAConverterTool = ({ darkMode }) => {
           title="CGPA to Percentage Converter | 10.0 & 4.0 Scale - Smart Studies"
           description="Convert CGPA to percentage or percentage to CGPA online. Free accurate calculator with formulas for VTU, Mumbai University, Anna University, CBSE, and JNTU."
           url="https://smartstudenttools.xyz/gpa-converter"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do you convert CGPA to percentage on a 10-point scale?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "For standard universities, the general formula is: Percentage = (CGPA / 10.0) * 100 or CGPA * 9.5 (CBSE standard). For VTU, the official formula is (CGPA - 0.75) * 10."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the formula to convert percentage back to CGPA?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "To convert percentage to CGPA on a 10.0 scale, divide your percentage by 9.5 (CBSE/AICTE standard) or use: CGPA = (Percentage / 100) * 10."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between CGPA and GPA?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "GPA measures performance across a single term or semester (often called SGPA), while CGPA (Cumulative Grade Point Average) reflects performance across all semesters combined."
+                }
+              }
+            ]
+          }}
         />
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-10 transition hover:shadow-xl hover:scale-[1.02] duration-200 max-w-xl mx-auto">
           <div className="text-center mb-8">

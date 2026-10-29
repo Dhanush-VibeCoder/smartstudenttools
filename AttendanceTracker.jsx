@@ -171,6 +171,36 @@ const AttendanceTracker = ({ darkMode }) => {
         title="75% Attendance Calculator | How Many Classes Can I Skip? - Smart Studies"
         description="Calculate and track your college attendance online. Find out exactly how many classes you must attend or can skip to maintain a 75% or 80% attendance rate."
         url="https://smartstudenttools.xyz/attendance-tracker"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why is the 75% attendance rule mandatory in colleges?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most universities enforce a 75% attendance rule to ensure students engage in regular academic lectures and hands-on lab sessions required for exam eligibility."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is college attendance percentage calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Attendance percentage is calculated using the formula: (Classes Attended / Total Classes Conducted) * 100."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many classes can I skip while staying above 75% attendance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If your current attendance is above 75%, the maximum classes you can skip is calculated by: Floor((100 * Attended - 75 * Total) / 75). Our free calculator computes this instantly for any subject."
+              }
+            }
+          ]
+        }}
       />
       <div className={`p-8 rounded-2xl shadow-xl w-full max-w-4xl mx-auto border space-y-6 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
         <div className="text-center">

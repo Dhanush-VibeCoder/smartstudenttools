@@ -171,6 +171,36 @@ const CitationGenerator = ({ darkMode }) => {
         title="IEEE & APA Citation Generator | Free Academic Reference Maker - Smart Studies"
         description="Free academic citation generator for engineering and college students. Generate instant IEEE, APA 7, MLA 9, and Harvard citations for project reports and seminars."
         url="https://smartstudenttools.xyz/citation-generator"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the IEEE citation style used for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IEEE (Institute of Electrical and Electronics Engineers) style is the standard referencing format used in engineering, computer science, and technology papers, seminar reports, and theses."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How are IEEE in-text citations formatted?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IEEE uses sequential numbered citations inside square brackets, such as [1], [2], or [3]-[5], in the exact order they appear in your project report."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the main difference between IEEE and APA citation styles?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "IEEE arranges citations numerically in brackets [1] and lists them sequentially, whereas APA uses author-date in-text citations (Author, Year) and alphabetizes the reference list."
+              }
+            }
+          ]
+        }}
       />
 
       <div className={`p-6 md:p-8 rounded-2xl shadow-xl w-full max-w-4xl mx-auto border space-y-6 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}>
