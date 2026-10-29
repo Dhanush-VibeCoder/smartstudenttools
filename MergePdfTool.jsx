@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 
 const MergePdfTool = ({ darkMode }) => {
   const [files, setFiles] = useState([]);
@@ -554,6 +555,7 @@ const MergePdfTool = ({ darkMode }) => {
         </div>
 
         {/* Ad banner above Articles */}
+        <RecommendedTools currentTool="merge-pdf" darkMode={darkMode} />
         <AdsterraBanner />
 
         {/* 12. Related Articles */}

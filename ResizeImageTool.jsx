@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from "./SEO";
 import { convertImage } from "./imageConversion.js";
 import {
@@ -468,6 +469,7 @@ export default function ResizeImageTool({ darkMode }) {
           </div>
 
         </div>
+        <RecommendedTools currentTool="resize-image" darkMode={darkMode} />
         <AdsterraBanner />
       </section>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 import { encryptPDF } from '@pdfsmaller/pdf-encrypt';
 
@@ -482,6 +483,7 @@ const LockPdfTool = ({ darkMode }) => {
         </div>
 
         {/* Ad banner above Feedback */}
+        <RecommendedTools currentTool="lock-pdf" darkMode={darkMode} />
         <AdsterraBanner />
 
         {/* Feedback Form Section */}

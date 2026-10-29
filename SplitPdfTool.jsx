@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 
 const SplitPdfTool = ({ darkMode }) => {
@@ -505,9 +506,9 @@ const SplitPdfTool = ({ darkMode }) => {
           <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{statusMessage}</p>
         )}
 
-        <AdsterraBanner />
+        <RecommendedTools currentTool="split-pdf" darkMode={darkMode} />
 
-        {/* ── How it Works ───────────────────────────────────────── */}
+        <AdsterraBanner />
         <div className={`${cardCls} mb-6 mt-8`}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             <span className="w-1.5 h-6 bg-red-500 rounded-full inline-block"></span>

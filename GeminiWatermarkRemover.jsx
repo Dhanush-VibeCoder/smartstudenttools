@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 
 const GeminiWatermarkRemover = ({ darkMode }) => {
@@ -348,6 +349,7 @@ const GeminiWatermarkRemover = ({ darkMode }) => {
 
         {/* Banner Ad */}
         <div className="mb-6">
+          <RecommendedTools currentTool="gemini-watermark-remover" darkMode={darkMode} />
           <AdsterraBanner />
         </div>
 

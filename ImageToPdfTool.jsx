@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 
 const ImageToPdfTool = ({ darkMode }) => {
@@ -293,8 +294,6 @@ const ImageToPdfTool = ({ darkMode }) => {
 
         {/* Adbanner */}
         <AdsterraBanner />
-
-        {/* Converter Workspace */}
         <div className={`p-6 rounded-2xl shadow-xl border mb-10 transition-all ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`} id="tool-section">
           {images.length === 0 ? (
             /* Empty state upload zone */
@@ -661,6 +660,7 @@ const ImageToPdfTool = ({ darkMode }) => {
         </div>
 
         {/* Adbanner */}
+        <RecommendedTools currentTool="image-to-pdf" darkMode={darkMode} />
         <AdsterraBanner />
 
         {/* Feedback Section */}

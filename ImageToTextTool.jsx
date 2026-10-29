@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 
 // Supported OCR languages
@@ -401,6 +402,8 @@ const ImageToTextTool = ({ darkMode }) => {
             />
           </div>
         )}
+
+        <RecommendedTools currentTool="image-to-text" darkMode={darkMode} />
 
         <AdsterraBanner />
 

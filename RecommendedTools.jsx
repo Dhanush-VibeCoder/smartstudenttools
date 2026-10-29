@@ -57,6 +57,62 @@ const ALL_TOOLS = [
     icon: '🔍',
     badge: 'Productivity',
     desc: 'Extract handwritten notes, textbook pages, and screenshots into editable text.'
+  },
+  {
+    id: 'merge-pdf',
+    path: '/merge-pdf',
+    title: 'Merge PDF Files',
+    icon: '📎',
+    badge: 'PDF Tool',
+    desc: 'Combine multiple PDF files into one document instantly — no upload required.'
+  },
+  {
+    id: 'split-pdf',
+    path: '/split-pdf',
+    title: 'Split PDF Pages',
+    icon: '✂️',
+    badge: 'PDF Tool',
+    desc: 'Extract specific pages or split a PDF into individual files right in your browser.'
+  },
+  {
+    id: 'lock-pdf',
+    path: '/lock-pdf',
+    title: 'Lock PDF with Password',
+    icon: '🔒',
+    badge: 'PDF Tool',
+    desc: 'Password-protect your PDF files before sharing assignments or project reports.'
+  },
+  {
+    id: 'unlock-pdf',
+    path: '/unlock-pdf',
+    title: 'Unlock PDF Password',
+    icon: '🔓',
+    badge: 'PDF Tool',
+    desc: 'Remove passwords from PDF files you own — fully offline and private.'
+  },
+  {
+    id: 'image-to-pdf',
+    path: '/image-to-pdf',
+    title: 'Image to PDF Converter',
+    icon: '🖼️',
+    badge: 'Converter',
+    desc: 'Turn JPG, PNG, or WEBP images into a clean PDF document for submission.'
+  },
+  {
+    id: 'compress-image',
+    path: '/compress-image',
+    title: 'Compress Image Online',
+    icon: '📦',
+    badge: 'Productivity',
+    desc: 'Reduce image file size for email, assignments, and college portals without quality loss.'
+  },
+  {
+    id: 'resize-image',
+    path: '/resize-image',
+    title: 'Resize Image Online',
+    icon: '📐',
+    badge: 'Productivity',
+    desc: 'Resize photos to exact pixels or percentage — perfect for profile pictures and forms.'
   }
 ];
 

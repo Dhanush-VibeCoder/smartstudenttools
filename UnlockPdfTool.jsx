@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import AdsterraBanner from './AdsterraBanner';
+import RecommendedTools from './RecommendedTools';
 import SEO from './SEO';
 import { decryptPDF } from '@pdfsmaller/pdf-decrypt';
 
@@ -491,6 +492,7 @@ const UnlockPdfTool = ({ darkMode }) => {
         </div>
 
         {/* Ad banner above Feedback */}
+        <RecommendedTools currentTool="unlock-pdf" darkMode={darkMode} />
         <AdsterraBanner />
 
         {/* Feedback Form Section */}
