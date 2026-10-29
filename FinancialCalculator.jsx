@@ -622,7 +622,7 @@ const FinancialCalculator = ({ darkMode, onToggleDarkMode }) => {
               <h4 className="font-bold text-lg mb-3">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
                 <li><Link to="/blog/student-budgeting-financial-literacy-guide" className="hover:underline">The Ultimate Student Budgeting &amp; Financial Literacy Guide</Link></li>
-                <li><a href="https://yourdomain.com/blog/freelance-tax-invoicing" target="_blank" rel="noopener noreferrer" className="hover:underline">Tax Guide for Student Freelancers: Creating Invoices</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/freelance-tax-invoicing" target="_blank" rel="noopener noreferrer" className="hover:underline">Tax Guide for Student Freelancers: Creating Invoices</a></li>
               </ul>
             </div>
           </div>

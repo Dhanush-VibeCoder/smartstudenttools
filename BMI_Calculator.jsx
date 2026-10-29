@@ -146,7 +146,7 @@ const BMICalculator = () => {
   };
   const handleShareWhatsApp = () => {
     if (!bmi || !category) return;
-    const text = `My BMI is ${bmi.toFixed(1)} (${category.label}) on ${new Date().toLocaleDateString()}. Calculate yours at: https://smartstudenttools.com/bmi-calculator`;
+    const text = `My BMI is ${bmi.toFixed(1)} (${category.label}) on ${new Date().toLocaleDateString()}. Calculate yours at: https://smartstudenttools.xyz/bmi-calculator`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
   };
   const handleShareInstagram = () => {
@@ -558,8 +558,8 @@ const BMICalculator = () => {
           <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
             <h4 className="font-bold text-lg mb-3">📚 Related Articles</h4>
             <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-              <li><a href="https://yourdomain.com/blog/bmi-limitations" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding the Limitations of Body Mass Index</a></li>
-              <li><a href="https://yourdomain.com/blog/nutrition-for-students" target="_blank" rel="noopener noreferrer" className="hover:underline">Healthy Meal Prep Tips for College Students</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/bmi-limitations" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding the Limitations of Body Mass Index</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/nutrition-for-students" target="_blank" rel="noopener noreferrer" className="hover:underline">Healthy Meal Prep Tips for College Students</a></li>
             </ul>
           </div>
         </div>

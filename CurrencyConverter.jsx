@@ -326,8 +326,8 @@ const CurrencyConverter = ({ darkMode }) => {
             <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <h4 className="font-bold text-lg mb-3">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-                <li><a href="https://yourdomain.com/blog/forex-basics" target="_blank" rel="noopener noreferrer" className="hover:underline">Foreign Exchange Basics: How Rates are Determined</a></li>
-                <li><a href="https://yourdomain.com/blog/business-profits-margins" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding Markup vs Profit Margins</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/forex-basics" target="_blank" rel="noopener noreferrer" className="hover:underline">Foreign Exchange Basics: How Rates are Determined</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/business-profits-margins" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding Markup vs Profit Margins</a></li>
               </ul>
             </div>
           </div>

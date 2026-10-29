@@ -484,8 +484,8 @@ const StandardCalculator = () => {
           <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
             <h4 className="font-bold text-lg mb-3">📚 Related Articles</h4>
             <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-              <li><a href="https://yourdomain.com/blog/pemdas-order-operations" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding PEMDAS and Order of Operations</a></li>
-              <li><a href="https://yourdomain.com/blog/calculator-tips" target="_blank" rel="noopener noreferrer" className="hover:underline">Numpad Keyboard Shortcuts for Web Calculators</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/pemdas-order-operations" target="_blank" rel="noopener noreferrer" className="hover:underline">Understanding PEMDAS and Order of Operations</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/calculator-tips" target="_blank" rel="noopener noreferrer" className="hover:underline">Numpad Keyboard Shortcuts for Web Calculators</a></li>
             </ul>
           </div>
         </div>

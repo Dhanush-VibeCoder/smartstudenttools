@@ -411,8 +411,8 @@ const ScientificCalculator = ({ darkMode }) => {
             <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <h4 className="font-bold text-lg mb-3">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-                <li><a href="https://yourdomain.com/blog/trigonometry-unit-circle" target="_blank" rel="noopener noreferrer" className="hover:underline">Trigonometry and the Unit Circle Simplified</a></li>
-                <li><a href="https://yourdomain.com/blog/understanding-euler-number" target="_blank" rel="noopener noreferrer" className="hover:underline">What is Euler's Number (e) and Why is it Useful?</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/trigonometry-unit-circle" target="_blank" rel="noopener noreferrer" className="hover:underline">Trigonometry and the Unit Circle Simplified</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/understanding-euler-number" target="_blank" rel="noopener noreferrer" className="hover:underline">What is Euler's Number (e) and Why is it Useful?</a></li>
               </ul>
             </div>
           </div>

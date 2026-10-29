@@ -473,8 +473,8 @@ const BranchPredictor = ({ darkMode }) => {
             <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-                <li><a href="https://yourdomain.com/blog/josaa-counseling-tips" target="_blank" rel="noopener noreferrer" className="hover:underline">Mastering JOSAA / CSAB Choice Filling Rounds</a></li>
-                <li><a href="https://yourdomain.com/blog/branch-change" target="_blank" rel="noopener noreferrer" className="hover:underline">How to Change Engineering Branches in First Year</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/josaa-counseling-tips" target="_blank" rel="noopener noreferrer" className="hover:underline">Mastering JOSAA / CSAB Choice Filling Rounds</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/branch-change" target="_blank" rel="noopener noreferrer" className="hover:underline">How to Change Engineering Branches in First Year</a></li>
               </ul>
             </div>
           </div>

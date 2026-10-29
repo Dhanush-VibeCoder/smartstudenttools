@@ -1,0 +1,40 @@
+{
+  "name": "smart-student-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A collection of smart tools for students (GPA converter, attendance tracker, grade calculator, etc.)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@pdfsmaller/pdf-decrypt": "^1.0.1",
+    "@pdfsmaller/pdf-encrypt": "^1.0.2",
+    "@vercel/analytics": "^1.5.0",
+    "chart.js": "^4.5.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "pdf-lib": "^1.17.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-circular-progressbar": "^2.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga4": "^3.0.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.0",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.4.0",
+    "source-map-explorer": "^2.5.3",
+    "tailwindcss": "^3.3.0",
+    "vite": "^7.0.4"
+  }
+}

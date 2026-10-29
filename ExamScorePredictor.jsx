@@ -409,7 +409,7 @@ const ExamScorePredictor = ({ darkMode }) => {
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
                 <li><Link to="/blog/academic-survival-guide-calculate-grades-predict-scores-clear-backlogs" className="hover:underline">The Academic Survival Guide: How to Calculate Grades, Predict Exam Scores, and Clear Backlogs</Link></li>
-                <li><a href="https://yourdomain.com/blog/understanding-syllabi" target="_blank" rel="noopener noreferrer" className="hover:underline">Syllabus Guide: Decoding Grade Slabs and Weights</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/understanding-syllabi" target="_blank" rel="noopener noreferrer" className="hover:underline">Syllabus Guide: Decoding Grade Slabs and Weights</a></li>
               </ul>
             </div>
           </div>

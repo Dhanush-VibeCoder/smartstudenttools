@@ -606,8 +606,8 @@ const StudyPlanner = ({ darkMode }) => {
             <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">📚 Related Articles</h4>
               <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-                <li><a href="https://yourdomain.com/blog/exam-prep-methods" target="_blank" rel="noopener noreferrer" className="hover:underline">Spaced Repetition and Active Recall Systems</a></li>
-                <li><a href="https://yourdomain.com/blog/beat-procrastination" target="_blank" rel="noopener noreferrer" className="hover:underline">How to Beat Exam Procrastination and Stay Focused</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/exam-prep-methods" target="_blank" rel="noopener noreferrer" className="hover:underline">Spaced Repetition and Active Recall Systems</a></li>
+                <li><a href="https://smartstudenttools.xyz/blog/beat-procrastination" target="_blank" rel="noopener noreferrer" className="hover:underline">How to Beat Exam Procrastination and Stay Focused</a></li>
               </ul>
             </div>
           </div>

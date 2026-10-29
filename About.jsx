@@ -7,13 +7,13 @@ const About = () => (
     <SEO
       title="About - Smart Student Tools"
       description="Learn about the mission, vision, and team behind Smart Student Tools. Discover how we help students succeed with free, modern academic tools."
-      url="https://yourdomain.com/about"
+      url="https://smartstudenttools.xyz/about"
       jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'WebPage',
         'name': 'About - Smart Student Tools',
         'description': 'Learn about the mission, vision, and team behind Smart Student Tools. Discover how we help students succeed with free, modern academic tools.',
-        'url': 'https://yourdomain.com/about'
+        'url': 'https://smartstudenttools.xyz/about'
       }}
     />
     <div className="max-w-2xl mx-auto p-8 bg-white dark:bg-gray-900 rounded-2xl shadow-lg mt-12 mb-12">

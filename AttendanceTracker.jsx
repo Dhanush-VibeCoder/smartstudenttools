@@ -539,8 +539,8 @@ const AttendanceTracker = ({ darkMode }) => {
           <div className="p-6 rounded-xl border bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
             <h4 className="font-bold text-lg mb-3 text-gray-900 dark:text-gray-100">📚 Related Articles</h4>
             <ul className="space-y-2 text-sm text-blue-600 dark:text-blue-400">
-              <li><a href="https://yourdomain.com/blog/academic-planning" target="_blank" rel="noopener noreferrer" className="hover:underline">Effective Academic Time Management Guide</a></li>
-              <li><a href="https://yourdomain.com/blog/preventing-attendance-shortage" target="_blank" rel="noopener noreferrer" className="hover:underline">Tips to Keep Track of Class Lectures</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/academic-planning" target="_blank" rel="noopener noreferrer" className="hover:underline">Effective Academic Time Management Guide</a></li>
+              <li><a href="https://smartstudenttools.xyz/blog/preventing-attendance-shortage" target="_blank" rel="noopener noreferrer" className="hover:underline">Tips to Keep Track of Class Lectures</a></li>
             </ul>
           </div>
         </div>
