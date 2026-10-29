@@ -43,6 +43,7 @@ const ImageToPdfTool = lazy(() => import('./ImageToPdfTool.jsx'));
 const SplitPdfTool = lazy(() => import('./SplitPdfTool.jsx'));
 const ImageToTextTool = lazy(() => import('./ImageToTextTool.jsx'));
 const GeminiWatermarkRemover = lazy(() => import('./GeminiWatermarkRemover.jsx'));
+const CitationGenerator = lazy(() => import('./CitationGenerator.jsx'));
 
 
 // Placeholder for Lucide-like icons (replace with actual Lucide imports if used outside Canvas)
@@ -722,6 +723,14 @@ const App = () => {
       description: 'Get insights into potential college branches based on your exam performance.',
       component: BranchPredictor,
     },
+    {
+      id: 'citation-generator',
+      path: '/citation-generator',
+      icon: 'FileText',
+      title: 'IEEE & APA Citation Generator',
+      description: 'Generate standardized IEEE, APA 7, MLA 9, and Harvard citations for seminars, mini-projects, and thesis reports.',
+      component: CitationGenerator,
+    },
   ];
 
   const imageTools = [
@@ -818,6 +827,7 @@ const App = () => {
               <Route path="/unlock-pdf" element={<UnlockPdfTool darkMode={darkMode} />} />
               <Route path="/split-pdf" element={<SplitPdfTool darkMode={darkMode} />} />
               <Route path="/gemini-watermark-remover" element={<GeminiWatermarkRemover darkMode={darkMode} />} />
+              <Route path="/citation-generator" element={<CitationGenerator darkMode={darkMode} />} />
               
               <Route path="/blog/:slug" element={<BlogArticle darkMode={darkMode} />} />
 

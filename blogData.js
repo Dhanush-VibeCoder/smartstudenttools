@@ -694,5 +694,77 @@ export const blogArticles = [
         ]
       }
     ]
+  },
+  {
+    slug: "how-to-write-ieee-apa-citations-engineering-projects",
+    title: "How to Write IEEE and APA References for Engineering Projects & Seminars (with Examples)",
+    description: "Learn how to write properly formatted IEEE and APA citations for college seminars, mini-projects, and thesis reports. Includes rules, formulas, examples, and common mistakes.",
+    author: "Smart Studies Editorial Team",
+    date: "October 29, 2026",
+    readTime: "6 min read",
+    category: "Academic Research & Projects",
+    sections: [
+      {
+        heading: "1. Why Referencing Matters in Engineering Projects",
+        paragraphs: [
+          "Whether you are preparing a technical seminar presentation, submitting a third-year mini-project, or defending your final year engineering dissertation, your references list is scrutinized closely by external viva examiners.",
+          "Plagiarism detection software like Turnitin, Urkund (Ouriginal), and DrillBit flag uncited sentences immediately. Citing authoritative research papers, IEEE conference proceedings, and official documentation proves that your project is grounded in established technical literature.",
+          "Failing to cite sources correctly can lead to deduction of marks or rejected report submissions."
+        ]
+      },
+      {
+        heading: "2. The IEEE Citation Style (The Engineering Standard)",
+        paragraphs: [
+          "The Institute of Electrical and Electronics Engineers (IEEE) style is the international gold standard for computer science, electronics, electrical, and mechanical engineering disciplines.",
+          "Key rules of IEEE referencing:",
+          "• In-Text Citation: In-text citations are indicated by integers enclosed in square brackets, such as [1], [2], or [3]-[5]. They appear on the line of text, inside punctuation marks.",
+          "• Order in Reference List: References are listed in numerical order according to where they first appear in your report, NOT alphabetically.",
+          "• Author Names: Author names are written with initials first, followed by the surname (e.g., 'A. M. Turing and C. E. Shannon').",
+          "• Title Formatting: Article and paper titles are enclosed in double quotation marks, while journal or conference book names are set in italics."
+        ]
+      },
+      {
+        heading: "3. Real-World IEEE Reference Examples",
+        paragraphs: [
+          "Here are the exact templates and examples for the three most common sources used in student reports:",
+          "A. Journal Article:",
+          "[1] J. K. Author and R. H. Coauthor, \"Title of technical paper,\" IEEE Trans. Cybern., vol. 48, no. 3, pp. 845-857, Mar. 2022, doi: 10.1109/TCYB.2021.123456.",
+          "B. Conference Proceeding Paper:",
+          "[2] S. Gupta and P. Sharma, \"Real-time crop disease detection using lightweight convolutional neural networks,\" in Proc. IEEE Int. Conf. Adv. Comput. (ICAC), Bengaluru, India, 2023, pp. 112-118.",
+          "C. Technical Website or Documentation:",
+          "[3] Python Software Foundation, \"Multiprocessing - Process-based parallelism,\" Python 3.12 Documentation, 2024. [Online]. Available: https://docs.python.org/3/library/multiprocessing.html. [Accessed: Oct. 29, 2026]."
+        ]
+      },
+      {
+        heading: "4. The APA 7th Edition Standard (Social & Interdisciplinary Fields)",
+        paragraphs: [
+          "If your project spans interdisciplinary management, biomedical sciences, or education technology, your department may require APA (American Psychological Association) 7th Edition style.",
+          "Unlike IEEE, APA uses the author-date system for in-text citations: (Gupta & Sharma, 2023).",
+          "In the References list at the end of the report:",
+          "• References are alphabetized by the first author's last name.",
+          "• Authors are listed as Surname, Initials: Gupta, S., & Sharma, P. (2023).",
+          "• Book and journal names are italicized, but article titles are in regular font without quotes.",
+          "Example: Gupta, S., & Sharma, P. (2023). Real-time crop disease detection using lightweight convolutional neural networks. Journal of Agricultural Informatics, 14(2), 112-118. https://doi.org/10.1109/ICAC.2023.123456"
+        ]
+      },
+      {
+        heading: "5. Top 5 Referencing Mistakes Evaluators Catch",
+        paragraphs: [
+          "During final project reviews, college professors and external examiners regularly penalize students for these common errors:",
+          "1. Inconsistent Formatting: Mixing IEEE brackets [1] with APA author-date (Smith, 2022) in the same project report.",
+          "2. Naked URLs: Pasting raw URLs (e.g. 'https://github.com/...') in the references page without an author, title, or access date.",
+          "3. Citing Unreliable Sources: Listing Wikipedia or Quora as primary citations instead of peer-reviewed conference papers or official developer docs.",
+          "4. Missing Page Numbers: Omitting volume, issue, or page numbers (pp. xxx-xxx) for published journal articles.",
+          "5. Disordered List: Alphabetizing IEEE references instead of ordering them numerically as they appear in the project chapters."
+        ]
+      },
+      {
+        heading: "6. Generate Free IEEE & APA Citations in Seconds",
+        paragraphs: [
+          "Instead of manually typing out quotation marks, italics, and volume numbers, use our free Academic Citation Generator.",
+          "You can enter your paper title, authors, and journal name to get instant, error-free citations in IEEE, APA 7, MLA 9, or Harvard format. You can also build an entire bibliography list and copy all references in a single click."
+        ]
+      }
+    ]
   }
 ];
