@@ -21,6 +21,27 @@ const GPAConverterTool = ({ darkMode }) => {
     const [rating, setRating] = useState(0);
     const [ratingHover, setRatingHover] = useState(0);
     const [ratingSubmitted, setRatingSubmitted] = useState(false);
+    const [shareCopied, setShareCopied] = useState(false);
+
+    const getShareText = () => {
+      if (conversionDirection === 'gpaToPercentage') {
+        return `My CGPA of ${inputValue} converts to ${convertedResult}% (${university} formula)! Calculate yours on Smart Studies: https://smartstudenttools.xyz/gpa-converter`;
+      }
+      return `My percentage of ${inputValue}% converts to a CGPA of ${convertedResult} (${university} formula)! Calculate yours on Smart Studies: https://smartstudenttools.xyz/gpa-converter`;
+    };
+
+    const handleShareWhatsApp = () => {
+      const text = getShareText();
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    };
+
+    const handleCopyResult = () => {
+      const text = getShareText();
+      navigator.clipboard.writeText(text).then(() => {
+        setShareCopied(true);
+        setTimeout(() => setShareCopied(false), 2500);
+      });
+    };
   
     const [pendingInput, setPendingInput] = useState({
       inputValue: '',
@@ -632,12 +653,35 @@ const GPAConverterTool = ({ darkMode }) => {
           )}
   
           {convertedResult !== null && !error && (
-            <div className="flex justify-center">
+            <div className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold shadow transition-all duration-300 transform hover:scale-105"
+                >
+                  <span>📲</span> Share on WhatsApp
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopyResult}
+                  className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold shadow transition-all duration-300 transform hover:scale-105 ${
+                    shareCopied
+                      ? 'bg-emerald-700 text-white'
+                      : darkMode
+                      ? 'bg-gray-700 hover:bg-gray-600 text-gray-100'
+                      : 'bg-white hover:bg-gray-100 text-gray-800 border border-gray-200'
+                  }`}
+                >
+                  <span>{shareCopied ? '✅' : '📋'}</span> {shareCopied ? 'Score Copied!' : 'Copy Result'}
+                </button>
+              </div>
               <button
+                type="button"
                 onClick={generatePdf}
                 className={`w-full font-bold py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${darkMode ? 'bg-teal-800 hover:bg-teal-900 text-white' : 'bg-teal-700 hover:bg-teal-800 text-white'}`}
               >
-                Download PDF
+                📥 Download PDF
               </button>
             </div>
           )}

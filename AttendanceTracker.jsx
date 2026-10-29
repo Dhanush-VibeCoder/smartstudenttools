@@ -25,6 +25,27 @@ const AttendanceTracker = ({ darkMode }) => {
   const [error, setError] = useState('');
   const [showAlertLowAttendance, setShowAlertLowAttendance] = useState(false);
   const [showAlertMissedClasses, setShowAlertMissedClasses] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const getShareText = () => {
+    const statusMsg = Number(attendancePercentage) >= 75
+      ? "I'm in the safe zone! ✅"
+      : "Need to attend more classes to hit 75%! 🚨";
+    return `My college attendance is ${attendancePercentage}% (${totalAttended}/${totalClasses} classes attended). ${statusMsg}\nCheck your attendance on Smart Studies: https://smartstudenttools.xyz/attendance-tracker`;
+  };
+
+  const handleShareWhatsApp = () => {
+    const text = getShareText();
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  const handleCopyResult = () => {
+    const text = getShareText();
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+  };
 
   // Effect to recalculate attendance whenever attendanceLog changes
   useEffect(() => {
@@ -233,6 +254,31 @@ const AttendanceTracker = ({ darkMode }) => {
               <p className="text-blue-700 text-3xl font-bold">{attendancePercentage}%</p>
             </div>
           </div>
+
+          {totalClasses > 0 && (
+            <div className="flex flex-wrap justify-center gap-3 pt-3">
+              <button
+                type="button"
+                onClick={handleShareWhatsApp}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold text-sm shadow transition-all duration-200 transform hover:scale-105"
+              >
+                <span>📲</span> Share on WhatsApp
+              </button>
+              <button
+                type="button"
+                onClick={handleCopyResult}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm shadow transition-all duration-200 transform hover:scale-105 ${
+                  copied
+                    ? 'bg-emerald-700 text-white'
+                    : darkMode
+                    ? 'bg-gray-700 hover:bg-gray-600 text-white'
+                    : 'bg-white hover:bg-gray-100 text-gray-800 border border-gray-200'
+                }`}
+              >
+                <span>{copied ? '✅' : '📋'}</span> {copied ? 'Copied to Clipboard!' : 'Copy Result'}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Alerts Section */}
