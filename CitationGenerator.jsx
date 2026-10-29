@@ -544,3 +544,4 @@ const CitationGenerator = ({ darkMode }) => {
 };
 
 export default CitationGenerator;
+
