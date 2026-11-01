@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import AdsterraBanner from './AdsterraBanner';
+import AdsterraRectangle from './AdsterraRectangle';
 import RecommendedTools from './RecommendedTools';
 
 // Paste the full GradeCalculator component code here from App.jsx
@@ -405,6 +406,36 @@ const GradeCalculator = ({ darkMode }) => {
           title="College Grade Calculator | Calculate Final Exam Target Marks - Smart Studies"
           description="Free online grade calculator to compute semester GPA, weighted subject grades, and the exact final exam score needed to pass or get an A."
           url="https://smartstudenttools.xyz/grade-calculator"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the difference between simple average and weighted average?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A simple average weights all subjects equally. A weighted average scales each subject's impact by its credit hours. For example, a 4-credit course affects your GPA twice as much as a 2-credit course."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does the What-If Simulator help in grade calculation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The What-If Simulator lets you check how your total GPA or percentage will change if you score higher or lower in a particular class, helping you prioritize where to focus study time before final exams."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you calculate weighted semester GPA from credits and marks?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Multiply the grade points earned in each course by its credit hours to get quality points, sum them across all subjects, and divide by the total number of credits taken in the semester."
+                }
+              }
+            ]
+          }}
         />
         <div className="group p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full max-w-3xl mx-auto border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 space-y-6">
           <div className="text-center mb-8">
@@ -719,6 +750,11 @@ const GradeCalculator = ({ darkMode }) => {
             </div>
           )}
 
+          {/* Medium Rectangle Ad below Grade Result */}
+          {totalPercentage !== null && (
+            <AdsterraRectangle />
+          )}
+
           {/* Recommended Next Tools Bar */}
           <RecommendedTools currentTool="grade-calculator" darkMode={darkMode} />
   
@@ -956,6 +992,28 @@ const GradeCalculator = ({ darkMode }) => {
                 </button>
                 <div className="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
                   <p className="pt-2">It lets you check how your total GPA will change if you score higher or lower in a particular class, helping you decide where to focus your study time before finals.</p>
+                </div>
+              </div>
+              <div className="border-b border-gray-200 dark:border-gray-700 pb-3">
+                <button
+                  className="w-full flex justify-between items-center text-left font-semibold text-lg py-3 focus:outline-none text-gray-900 dark:text-gray-100"
+                  onClick={(e) => {
+                    const content = e.currentTarget.nextElementSibling;
+                    const icon = e.currentTarget.querySelector('.accordion-icon');
+                    if (content.style.maxHeight) {
+                      content.style.maxHeight = null;
+                      icon.style.transform = 'rotate(0deg)';
+                    } else {
+                      content.style.maxHeight = content.scrollHeight + 'px';
+                      icon.style.transform = 'rotate(45deg)';
+                    }
+                  }}
+                >
+                  <span>How do you calculate weighted semester GPA from credits and marks?</span>
+                  <span className="accordion-icon text-2xl rotate-0 transition-transform duration-300 text-gray-500">+</span>
+                </button>
+                <div className="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
+                  <p className="pt-2">Multiply the grade points earned in each course by its credit hours to get quality points, sum them across all subjects, and divide by the total number of credits taken in the semester.</p>
                 </div>
               </div>
             </div>

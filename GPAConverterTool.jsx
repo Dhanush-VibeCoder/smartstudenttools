@@ -4,6 +4,7 @@ import SEO from './SEO';
 const ConversionTable = React.lazy(() => import('./ConversionTable'));
 import CalculationHistory from './CalculationHistory.jsx';
 import AdsterraBanner from './AdsterraBanner';
+import AdsterraRectangle from './AdsterraRectangle';
 import RecommendedTools from './RecommendedTools';
 
 // --- GPAConverterTool Component ---
@@ -719,7 +720,10 @@ const GPAConverterTool = ({ darkMode }) => {
   
           {/* Calculation History below the result */}
           {convertedResult !== null && !error && (
-            <CalculationHistory />
+            <>
+              <CalculationHistory />
+              <AdsterraRectangle />
+            </>
           )}
 
           {/* Recommended Next Tools Bar */}

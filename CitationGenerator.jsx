@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import AdsterraBanner from './AdsterraBanner';
+import AdsterraRectangle from './AdsterraRectangle';
 import RecommendedTools from './RecommendedTools';
 
 const CitationGenerator = ({ darkMode }) => {
@@ -447,6 +448,9 @@ const CitationGenerator = ({ darkMode }) => {
             </button>
           </div>
         </div>
+
+        {/* Medium Rectangle Ad below Citation Result */}
+        <AdsterraRectangle />
 
         {/* Bibliography List (if any items added) */}
         {bibliography.length > 0 && (

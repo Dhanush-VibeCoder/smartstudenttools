@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from './SEO';
 import AdsterraBanner from './AdsterraBanner';
+import AdsterraRectangle from './AdsterraRectangle';
+import RecommendedTools from './RecommendedTools';
 
 // Paste the full BacklogTracker component code here from App.jsx
 // --- BacklogTracker Component ---
@@ -154,6 +156,36 @@ const BacklogTracker = ({ darkMode }) => {
           title="College Backlog Tracker | Track Arrears & Clear Pending Subjects - Smart Studies"
           description="Track pending college backlogs and arrears semester-wise. Monitor subject clearing progress and plan your exam strategy to clear all backlogs efficiently."
           url="https://smartstudenttools.xyz/backlog-tracker"
+          jsonLd={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the difference between active and history backlogs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "An active backlog means you currently have an uncleared failed subject. A history backlog refers to subjects you initially failed but have since cleared through supplementary exams. Companies and recruiters typically screen for active backlogs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I graduate with pending backlogs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. In almost all university systems, you cannot receive your degree certificate until you have successfully cleared all subjects in your curriculum and have zero active backlogs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How many backlogs are allowed for campus placement drives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most Tier-1 and MNC campus recruiters require 0 active backlogs at the time of recruitment, though some service companies permit up to 1 or 2 past history backlogs provided they are cleared before graduation."
+                }
+              }
+            ]
+          }}
         />
         <div className="group p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 w-full max-w-3xl mx-auto border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 space-y-6">
           <div className="text-center mb-8">
@@ -298,6 +330,9 @@ const BacklogTracker = ({ darkMode }) => {
             </div>
           </div>
 
+          {/* Medium Rectangle Ad below Results */}
+          <AdsterraRectangle />
+
           {/* How to Use Section */}
           <div className={`p-5 rounded-lg border shadow-sm mt-8 space-y-3 bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700`}>
             <h3 className={`font-bold text-lg text-gray-950 dark:text-gray-100`}>
@@ -412,6 +447,28 @@ const BacklogTracker = ({ darkMode }) => {
                   <p className="pt-2">No. In almost all academic systems, you cannot receive your degree certificate until you have successfully cleared all subjects in your curriculum and have zero active backlogs.</p>
                 </div>
               </div>
+              <div className="border-b border-gray-200 dark:border-gray-700 pb-3">
+                <button
+                  className="w-full flex justify-between items-center text-left font-semibold text-lg py-3 focus:outline-none text-gray-900 dark:text-gray-100"
+                  onClick={(e) => {
+                    const content = e.currentTarget.nextElementSibling;
+                    const icon = e.currentTarget.querySelector('.accordion-icon');
+                    if (content.style.maxHeight) {
+                      content.style.maxHeight = null;
+                      icon.style.transform = 'rotate(0deg)';
+                    } else {
+                      content.style.maxHeight = content.scrollHeight + 'px';
+                      icon.style.transform = 'rotate(45deg)';
+                    }
+                  }}
+                >
+                  <span>How many backlogs are allowed for campus placement drives?</span>
+                  <span className="accordion-icon text-2xl rotate-0 transition-transform duration-300 text-gray-500">+</span>
+                </button>
+                <div className="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out text-gray-700 dark:text-gray-300">
+                  <p className="pt-2">Most Tier-1 and MNC campus recruiters require 0 active backlogs at the time of recruitment, though some service companies permit up to 1 or 2 past history backlogs provided they are cleared before graduation.</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -459,6 +516,7 @@ const BacklogTracker = ({ darkMode }) => {
               </div>
             )}
           </div>
+          <RecommendedTools currentTool="backlog-tracker" darkMode={darkMode} />
           <AdsterraBanner />
         </div>
       </div>
